@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.trial.model.Company;
+import com.trial.model.Material;
 
 @Service("restService")
 public class RestServiceImpl implements RestService {
@@ -26,6 +27,13 @@ public class RestServiceImpl implements RestService {
 		//System.out.println(companies[0].getcompanyName());
 		
 		return Arrays.asList(companies);
+	}
+	
+	public List<Material> getMaterialsByCompanyId(Integer companyId){
+		
+		
+		
+		return null;
 	}
 
 }

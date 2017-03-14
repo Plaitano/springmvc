@@ -1,0 +1,5 @@
+com\trial\service\RestService.class
+com\trial\service\RestServiceImpl.class
+com\trial\model\Company.class
+com\trial\model\Material.class
+com\trial\controller\MinutesController.class

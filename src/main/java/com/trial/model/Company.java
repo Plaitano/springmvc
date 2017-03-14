@@ -5,14 +5,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Company {
 	
-	private Integer companyId;
+	private Integer companyID;
 	private String companyName;
 
-	public Integer getcompanyId() {
-		return companyId;
+	public Integer getcompanyID() {
+		return companyID;
 	}
-	public void setcompanyId(Integer companyId) {
-		this.companyId = companyId;
+	public void setcompanyId(Integer companyID) {
+		this.companyID = companyID;
 	}
 	public String getcompanyName() {
 		return companyName;
