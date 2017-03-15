@@ -14,14 +14,15 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		$(".target").change(function() {
+		$(".companyID").change(function() {
 			
 			$.ajax({
 				  url: "companies/materials/"+$(this).val(),
-				}).done(function() {
-						
+				}).done(function(data) {
+					$("#subViewMaterials").html(data);
 				});
 		});
+
 	});
 
 </script>
@@ -29,21 +30,28 @@
 </head>
 <body>
 <h1>CIao</h1>
+<table>
+	<tr>
+		<td>
+			<c:if test="${not empty companies}">
+				<select class="companyID">
+					<option value="">--Please select company--</option>
+					<c:forEach var="listValue" items="${companies}">
+						<option value="${listValue.companyID}">${listValue.companyName}</option>
+					</c:forEach>
+				</select>
+			</c:if>
+		</td>
+		<td>
+			<div id="subViewMaterials"></div>
+		</td>
+	</tr>
+	<tr height="20px"></tr>
+	<tr height="30px"></tr>
+</table>
 
-	<c:if test="${not empty companies}">
-		<select class="target">
-			<option value="">--Please select company--</option>
-			<c:forEach var="listValue" items="${companies}">
-				<option value="${listValue.companyID}">${listValue.companyName}</option>
-			</c:forEach>
-		</select>
-	</c:if>
-	
-	
-		
-	
-<select id="materials"></select>
-			
+<div id="subViewMaterialDetails"></div>
+
 	
 </body>
 </html>

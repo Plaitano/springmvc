@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.trial.model.Company;
 import com.trial.model.Material;
+import com.trial.model.MaterialDetails;
 
 @Service("restService")
 public class RestServiceImpl implements RestService {
@@ -31,9 +32,22 @@ public class RestServiceImpl implements RestService {
 	
 	public List<Material> getMaterialsByCompanyId(Integer companyId){
 		
+		final String URI = "http://193.142.112.220:8337/materialList?companyID="+companyId;
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<Material[]> responseEntity = restTemplate.getForEntity(URI , Material[].class);
+		Material[] materials = responseEntity.getBody();
+	
+		return Arrays.asList(materials);
+	}
+
+	public MaterialDetails getMaterialDetails(Integer materialID) {
 		
+		final String URI = "http://193.142.112.220:8337/materialDetails?ID="+materialID;
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<MaterialDetails> responseEntity = restTemplate.getForEntity(URI , MaterialDetails.class);
+		MaterialDetails materialDetails = responseEntity.getBody();
 		
-		return null;
+		return materialDetails;
 	}
 
 }
