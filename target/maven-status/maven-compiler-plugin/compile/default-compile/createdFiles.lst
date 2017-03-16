@@ -1,3 +1,4 @@
+com\trial\model\MaterialDetails.class
 com\trial\service\RestService.class
 com\trial\service\RestServiceImpl.class
 com\trial\model\Company.class
